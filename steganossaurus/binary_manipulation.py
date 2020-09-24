@@ -3,7 +3,7 @@ import numpy as np
 from typing import Union, List
 
 
-def substitute_lsb(origin: int, new: str):
+def substitute_lsb(origin: int, new: str) -> int:
     """Receives an origin number and replace the LSB (least significant bits)
     with the new string, converts back to integer and returns it.
 
@@ -38,12 +38,12 @@ def substitute_lsb(origin: int, new: str):
             Origin: {binary_origin}, new: {new} 
         """
         )
-    else:
-        new_binary = binary_origin[: -len(new)] + new
-        return int(new_binary, base=2)
+
+    new_binary = binary_origin[: -len(new)] + new
+    return int(new_binary, base=2)
 
 
-def extract_lsb(origin: int, count: int):
+def extract_lsb(origin: int, count: int) -> str:
     """Receives an integer number, converts it to it's binary representation (on string)
     and returns a string representation of the N least significant bits, with N equals to [count]
 
@@ -68,7 +68,7 @@ def extract_lsb(origin: int, count: int):
     return binary_origin
 
 
-def message_to_binary(message: Union[str, bytes, int]):
+def message_to_binary(message: Union[str, bytes, int]) -> Union[str, List[str]]:
     """Converts the received message into an binary presentation
 
     Args:
