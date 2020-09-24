@@ -34,15 +34,13 @@ def substitute_lsb(origin: int, new: str) -> int:
 
     if len(binary_origin) < len(new):
         raise ValueError(
-            f"""New value is too big to be encoded inside origin value.
-            Origin: {binary_origin}, new: {new} 
-        """
+            "New value is too big to be encoded inside origin value."
         )
-
-    new_binary = binary_origin[: -len(new)] + new
-    return int(new_binary, base=2)
-
-
+    else:
+        new_binary = binary_origin[: -len(new)] + new
+        return int(new_binary, base=2)
+      
+      
 def extract_lsb(origin: int, count: int) -> str:
     """Receives an integer number, converts it to it's binary representation (on string)
     and returns a string representation of the N least significant bits, with N equals to [count]
