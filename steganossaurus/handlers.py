@@ -15,7 +15,7 @@ def encode(
     input_image: Path,
     output_path: Path,
     delimiter: str = "#####",
-):
+) -> None:
     """Encode a text file using LSB image steganography inside a provided image, storing
     the final image on the [output_path]
 
@@ -60,7 +60,7 @@ def encode(
     print(f"Output image saved in {output_path}")
 
 
-def decode(input_image: Path, output_message: Path, delimiter: str = "#####"):
+def decode(input_image: Path, output_message: Path, delimiter: str = "#####") -> None:
     """Decodes a previously encoded message in an provided image, searching for
     the [delimiter] at the message end.
 
