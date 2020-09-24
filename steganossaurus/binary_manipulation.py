@@ -38,9 +38,9 @@ def substitute_lsb(origin: int, new: str) -> int:
             Origin: {binary_origin}, new: {new} 
         """
         )
-    else:
-        new_binary = binary_origin[: -len(new)] + new
-        return int(new_binary, base=2)
+
+    new_binary = binary_origin[: -len(new)] + new
+    return int(new_binary, base=2)
 
 
 def extract_lsb(origin: int, count: int) -> str:
