@@ -34,10 +34,9 @@ def substitute_lsb(origin: int, new: str):
 
     if len(binary_origin) < len(new):
         raise ValueError(
-            f"""New value is too big to be encoded inside origin value.
-            Origin: {binary_origin}, new: {new} 
-        """
+            "New value is too big to be encoded inside origin value."
         )
+
     else:
         new_binary = binary_origin[: -len(new)] + new
         return int(new_binary, base=2)
