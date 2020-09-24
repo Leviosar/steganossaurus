@@ -1,6 +1,6 @@
 import pytest
 
-from stegossaurus.binary_manipulation import substitute_lsb, extract_lsb
+from steganossaurus.binary_manipulation import substitute_lsb, extract_lsb
 
 def test_substitute_lsb():
     assert substitute_lsb(200, "11") == 203
