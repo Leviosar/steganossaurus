@@ -14,7 +14,7 @@ def encode(input_file: TextIOWrapper, input_image: str, output: str):
     encode_handler(input_file, Path(input_image), Path(output))
 
 
-@click.command(name="Encode", help="Decode image into text file")
+@click.command(name="Decode", help="Decode image into text file")
 @click.argument("input", type=click.Path(exists=True))
 @click.argument("output", type=click.Path())
 def decode(input, output):
