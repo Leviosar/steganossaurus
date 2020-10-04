@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "steganossaurus"
-version = "0.1.1"
+version = "0.2.0"
 description = "A jurassic python library for steganography"
 authors = ["Joao Vitor Maia <maia.tostring@gmail.com>"]
 repository = "https://github.com/leviosar/steganossaurus"
