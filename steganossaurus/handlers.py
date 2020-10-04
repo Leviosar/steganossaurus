@@ -14,7 +14,7 @@ def encode(
     input_message: TextIOWrapper,
     input_image: Path,
     output_path: Path,
-    delimiter: str = "#####",
+    delimiter: str,
 ) -> None:
     """Encode a text file using LSB image steganography inside a provided image, storing
     the final image on the [output_path]
@@ -23,6 +23,7 @@ def encode(
         input_message (TextIOWrapper): [description]
         input_image (Path): [description]
         output_path (Path): [description]
+        delimiter (str): [description]
 
     Raises:
         ValueError: if the message size is larger than the length of the provided image
@@ -67,7 +68,7 @@ def decode(input_image: Path, output_message: Path, delimiter: str = "#####") ->
     Args:
         input_image (Path): Path to source image
         output_message (Path): Path where the output message will be written
-        delimiter (str, optional): End of message delimiter. Defaults to "#####".
+        delimiter (str): End of message delimiter.
     """
     image = imread(input_image)
     binary_data = ""
