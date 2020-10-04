@@ -10,15 +10,17 @@ from .handlers import encode as encode_handler, decode as decode_handler
 @click.argument("input-file", type=click.File("r"))
 @click.argument("input-image", type=click.Path(exists=True))
 @click.argument("output", type=click.Path())
-def encode(input_file: TextIOWrapper, input_image: str, output: str):
-    encode_handler(input_file, Path(input_image), Path(output))
+@click.option("--delimiter", default="#####", help="Delimiter used for message trailer")
+def encode(input_file: TextIOWrapper, input_image: str, output: str, delimiter: str):
+    encode_handler(input_file, Path(input_image), Path(output), delimiter)
 
 
 @click.command(name="Decode", help="Decode image into text file")
 @click.argument("input", type=click.Path(exists=True))
 @click.argument("output", type=click.Path())
-def decode(input, output):
-    decode_handler(Path(input), Path(output))
+@click.option("--delimiter", default="#####", help="Delimiter used for message trailer")
+def decode(input: str, output: str, delimiter: str):
+    decode_handler(Path(input), Path(output), delimiter)
 
 
 @click.group(commands={"encode": encode, "decode": decode})
